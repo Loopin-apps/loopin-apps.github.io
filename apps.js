@@ -2,7 +2,8 @@
  * ✏️  여기만 수정하면 사이트 전체가 바뀝니다.
  *
  * appName: 앱인토스 콘솔에 등록된 appName. 링크(intoss://<appName>)가 자동으로 만들어집니다.
- * link   : (선택) 다른 링크를 쓰고 싶을 때만. 비우면 intoss://<appName>
+ * link   : 토스 공식 공유 링크(앱 안 공유 버튼으로 만든 https://tossminiapp.com/s/...).
+ *          토스가 없으면 스토어로 보내 줌. 비우면 intoss://<appName> 을 쓰고 main.js가 대신 처리
  * name   : 토스에서 검색되는 앱 이름 (링크가 안 열릴 때 "토스에서 검색" 안내에 쓰임)
  * icon   : 아이콘 이미지 경로
  * emoji  : 띠(마키)에 함께 표시할 이모지
@@ -24,6 +25,7 @@ window.APPS = [
   {
     name: "오늘의 운세",
     appName: "myfortune100",
+    link: "https://tossminiapp.com/s/lRWp02z7", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "별자리만 고르면 매일 새로운 총운·애정운·금전운을 보여주고, 한 달 흐름을 캘린더로 돌아봐요.",
     tag: "운세·재미",
     icon: "assets/icons/daily-fortune.png",
@@ -34,6 +36,7 @@ window.APPS = [
   {
     name: "오늘의 타로",
     appName: "todaytarot100",
+    link: "https://tossminiapp.com/s/fTtPUXu", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "끌리는 카드 한 장을 뒤집으면 오늘의 전체·연애·금전·직장 해석이 나와요.",
     tag: "운세·재미",
     icon: "assets/icons/tarot-draw.png",
@@ -43,6 +46,7 @@ window.APPS = [
   {
     name: "오늘의 달",
     appName: "moon-today",
+    link: "https://tossminiapp.com/s/xfQ2jdzg", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "날짜마다 실제 모양대로 그린 달과 음력·보름·절기를 보고, 달에게 소원도 빌어요.",
     tag: "운세·재미",
     icon: "assets/icons/moon-today.png",
@@ -53,6 +57,7 @@ window.APPS = [
   {
     name: "로또 추첨기",
     appName: "lottopick100",
+    link: "https://tossminiapp.com/s/fMBahuYs", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "진짜 추첨기처럼 공이 섞이고 하나씩 나와요. 8가지 방식으로 뽑고 역대 당첨번호 통계도 봐요.",
     tag: "운세·재미",
     icon: "assets/icons/lotto-pick.png",
@@ -64,6 +69,7 @@ window.APPS = [
   {
     name: "오늘 뭐 먹지",
     appName: "whattoeat100",
+    link: "https://tossminiapp.com/s/LzqRj7qB", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "식사 시간과 기분만 고르면 97개 메뉴 중 하나를 룰렛으로 골라줘요.",
     tag: "운세·재미",
     icon: "assets/icons/what-to-eat.png",
@@ -75,6 +81,7 @@ window.APPS = [
   {
     name: "내 유형은",
     appName: "mytype100",
+    link: "https://tossminiapp.com/s/rBiRqvXe", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "1~2분이면 끝나는 질문에 답하고 나의 성격 유형을 바로 알아봐요.",
     tag: "테스트",
     icon: "assets/icons/personality-quiz.png",
@@ -84,6 +91,7 @@ window.APPS = [
   {
     name: "우리 궁합",
     appName: "wechemi",
+    link: "https://tossminiapp.com/s/v613meuw", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "8개 질문에 답해 만든 코드를 친구·연인에게 보내면, 둘의 궁합 점수가 바로 나와요.",
     tag: "테스트",
     icon: "assets/icons/compat-test.png",
@@ -93,6 +101,7 @@ window.APPS = [
   {
     name: "나의 취향 월드컵",
     appName: "worldcup100",
+    link: "https://tossminiapp.com/s/zGu9zyfn", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "음식·여행지·동물 등 주제별 16강 토너먼트로 나만의 1위를 찾아요.",
     tag: "테스트",
     icon: "assets/icons/worldcup.png",
@@ -104,6 +113,7 @@ window.APPS = [
   {
     name: "초성 퀴즈",
     appName: "chosung-quiz",
+    link: "https://tossminiapp.com/s/1bEfniCh", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "초성만 보고 단어 맞히기. 8개 카테고리 240문제에 매일 바뀌는 오늘의 문제까지.",
     tag: "퀴즈·두뇌",
     icon: "assets/icons/chosung-quiz.png",
@@ -113,6 +123,7 @@ window.APPS = [
   {
     name: "맞춤법 퀴즈",
     appName: "spelling-quiz100",
+    link: "https://tossminiapp.com/s/nPQc83hb", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "며칠/몇일, 안 돼요/안 되요… 헷갈리는 맞춤법을 둘 중 하나로 골라 풀어요.",
     tag: "퀴즈·두뇌",
     icon: "assets/icons/spelling-quiz.png",
@@ -122,6 +133,7 @@ window.APPS = [
   {
     name: "두뇌 체크",
     appName: "braincheck100",
+    link: "https://tossminiapp.com/s/5ui3xQR3", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "기억력·집중력·계산력 게임 4가지를 하루 5분, 점수 변화를 기록으로 봐요.",
     tag: "퀴즈·두뇌",
     icon: "assets/icons/brain-check.png",
@@ -134,6 +146,7 @@ window.APPS = [
   {
     name: "다녀왔어",
     appName: "checkin-habit",
+    link: "https://tossminiapp.com/s/h6nwF8f2", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "헬스장·도서관·카페… 자주 가는 장소에 다녀온 날을 체크하고 연속 기록을 쌓아요.",
     tag: "생활·습관",
     icon: "assets/icons/checkin-habit.png",
@@ -143,6 +156,7 @@ window.APPS = [
   {
     name: "감정일기",
     appName: "mooddiary",
+    link: "https://tossminiapp.com/s/dUr8OZmm", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "이모지 하나와 한 줄 메모로 오늘 기분을 남기면, 캘린더가 감정 색으로 채워져요.",
     tag: "생활·습관",
     icon: "assets/icons/mood-diary.png",
@@ -152,6 +166,7 @@ window.APPS = [
   {
     name: "디지털 디톡스",
     appName: "unplugged",
+    link: "https://tossminiapp.com/s/BitxefNi", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "폰을 내려놓고 얼마나 버티는지 재는 타이머. 최고 기록과 연속 도전일이 쌓여요.",
     tag: "생활·습관",
     icon: "assets/icons/detox-timer.png",
@@ -161,6 +176,7 @@ window.APPS = [
   {
     name: "약 챙김",
     appName: "pillcheck100",
+    link: "https://tossminiapp.com/s/tR4bA17D", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
     desc: "아침·점심·저녁·자기 전, 먹었는지 한 번 눌러 체크만 하면 되는 복용 기록.",
     tag: "생활·습관",
     icon: "assets/icons/pill-check.png",

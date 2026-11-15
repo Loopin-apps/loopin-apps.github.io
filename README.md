@@ -30,7 +30,7 @@ https://loopin-apps.github.io
 - **Android**: `intent://` 주소로 열어서, 토스가 있으면 앱이 열리고 없으면 Play 스토어로 이동
 - **iPhone**: `intoss://<appName>`으로 이동. 토스가 없으면 Safari 오류 뒤 "토스 설치하기" 안내 창이 뜸
 - **PC**: QR 창이 열림. QR과 "링크 복사"는 `https://loopin-apps.github.io/?open=<appName>` 주소라 휴대폰 카메라로 언제나 열 수 있고, 열면 "토스에서 열기·토스 설치하기" 창이 뜸
-- `apps.js`의 `link`에 앱 안 공유 버튼으로 만든 https 공유 링크(`https://minion.toss.im/...`)를 넣으면 위 처리 대신 그 링크를 그대로 씀
+- `apps.js`의 `link`에 앱 안 공유 버튼으로 만든 공식 공유 링크(`https://tossminiapp.com/s/...`)를 넣으면 위 처리 대신 그 링크를 그대로 씀. **현재 15개 앱 모두 공식 링크를 씀**
 - Google Analytics(gtag)를 붙이면 `open_app` 이벤트로 앱별 클릭 수가 집계됩니다.
 
 ## 효과

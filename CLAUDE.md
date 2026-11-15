@@ -31,7 +31,7 @@
   - Android: `intent://<appName>#Intent;scheme=intoss;package=viva.republica.toss;S.browser_fallback_url=<Play 스토어>;end`
   - iOS: `intoss://`로 시도 → 1.8초 뒤에도 페이지가 보이면 "토스 설치하기" 안내 창(App Store `id839333328`)
   - PC QR·링크 복사: `?open=<appName>`이 붙은 사이트 주소. 이 주소로 들어오면 열기 버튼 창을 띄운다(터치 없이 앱 주소로 이동하면 막히는 브라우저가 있어서).
-- `link`에 https 공유 링크(앱 안 공유 버튼이 만드는 `minion.toss.im` 등)를 넣으면 그 링크를 그대로 쓴다. 토스가 없으면 스토어로 보내 주는 공식 링크라 가장 확실하다.
+- `link`에 공식 공유 링크(`https://tossminiapp.com/s/<코드>`, 각 앱 안 공유 버튼으로 생성)를 넣으면 그 링크를 그대로 쓴다. 토스가 없으면 스토어로 보내 주는 공식 링크라 가장 확실하다. **현재 15개 앱 모두 넣어 둠(2026-11-15).** 새 앱도 출시 후 공유 버튼으로 링크를 받아 넣는다.
 
 ## 배포
 - `main`에 머지하면 GitHub Pages가 자동 배포(1~2분).
