@@ -252,7 +252,7 @@ h2 { font-size: clamp(34px, 5vw, 56px); letter-spacing: -0.04em; line-height: 1.
 /* 모달 */
 .modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px; }
 .modal[hidden] { display: none; }
-.modal-backdrop { position: absolute; inset: 0; background: rgba(5, 4, 12, 0.7); backdrop-filter: blur(8px); animation: fade 0.25s; }
+.modal-backdrop { position: absolute; inset: 0; background: rgba(5, 4, 12, 0.85); animation: fade 0.25s; }
 .modal-card {
   position: relative; width: min(380px, 100%); padding: 36px 28px 28px; border-radius: 28px; text-align: center;
   background: var(--bg-2); border: 1px solid var(--line); box-shadow: 0 40px 80px -20px #000;
@@ -267,6 +267,12 @@ h2 { font-size: clamp(34px, 5vw, 56px); letter-spacing: -0.04em; line-height: 1.
 .qr img, .qr canvas { width: 184px !important; height: 184px !important; }
 .modal-search { color: var(--muted); font-size: 13px; margin: -8px 0 18px; }
 .modal-search b { color: var(--fg); }
+/* PC(QR): 링크 복사만 / 휴대폰(안내 창): 열기·설치 */
+.modal:not(.mobile) #open-link, .modal:not(.mobile) #install-link { display: none; }
+.modal.mobile #qr, .modal.mobile #copy-link { display: none; }
+.modal.mobile .modal-desc { margin-bottom: 20px; }
+.modal.mobile .modal-actions { flex-direction: column-reverse; }
+.modal.mobile .modal-actions .btn { width: 100%; padding: 14px; font-size: 16px; }
 .modal-actions { display: flex; gap: 8px; justify-content: center; }
 @keyframes fade { from { opacity: 0; } }
 @keyframes pop { from { opacity: 0; transform: translateY(20px) scale(0.95); } }

@@ -3,6 +3,26 @@
   const APPS = (window.APPS || []).map((a) => ({ ...a, link: a.link || `intoss://${a.appName}` }));
   const $ = (s, el = document) => el.querySelector(s);
   const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  const isAndroid = /Android/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  /* ---------- 토스 링크 ----------
+     intoss:// 는 토스가 없으면 브라우저가 오류를 낸다.
+     - Android: intent:// 주소로 바꿔서, 토스가 없으면 Play 스토어로 자동 이동
+     - iOS: 시도한 뒤 페이지가 그대로면 "토스 설치하기" 안내 창을 띄움
+     - apps.js 의 link 에 https 공유 링크(minion.toss.im 등)를 넣으면 그 링크를 그대로 씀 */
+  const STORE = {
+    ios: "https://apps.apple.com/kr/app/id839333328",
+    android: "https://play.google.com/store/apps/details?id=viva.republica.toss",
+  };
+  const isScheme = (a) => a.link.startsWith("intoss://");
+  const mobileLink = (a) => {
+    if (!isScheme(a) || !isAndroid) return a.link;
+    const rest = a.link.slice("intoss://".length);
+    return `intent://${rest}#Intent;scheme=intoss;package=viva.republica.toss;S.browser_fallback_url=${encodeURIComponent(STORE.android)};end`;
+  };
+  // PC QR·링크 복사용: 휴대폰 카메라가 언제나 열 수 있는 https 주소
+  const shareLink = (a) => (isScheme(a) ? `${location.origin}${location.pathname}?open=${encodeURIComponent(a.appName)}` : a.link);
   const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   /* ---------- 사이트 텍스트 ---------- */
@@ -101,23 +121,41 @@
     track(a);
     if (isMobile) {
       // 터치 폭죽이 보이도록 아주 잠깐 기다렸다 이동
-      setTimeout(() => { location.href = a.link; }, reduced ? 0 : 280);
-      // 토스 앱이 없거나 링크가 열리지 않으면 검색 안내
-      const t = setTimeout(() => { if (!document.hidden) toast(`토스 앱에서 '${a.name}'을(를) 검색해 보세요`, 4000); }, 1600);
-      addEventListener("visibilitychange", () => clearTimeout(t), { once: true });
+      setTimeout(() => { location.href = mobileLink(a); }, reduced ? 0 : 280);
+      // iOS에서 토스가 없으면 오류 뒤 페이지가 그대로 남음 → 설치 안내 창
+      // (Android intent 주소는 스토어로 알아서 이동하므로 안내 불필요)
+      if (isIOS && isScheme(a)) {
+        const t = setTimeout(() => { if (!document.hidden) showModal(a, "fallback"); }, 1800);
+        addEventListener("visibilitychange", () => clearTimeout(t), { once: true });
+        addEventListener("pagehide", () => clearTimeout(t), { once: true });
+      }
       return;
     }
+    showModal(a, "qr");
+  };
+  const DESC = {
+    qr: "휴대폰 카메라로 QR을 찍으면<br />토스에서 바로 열려요",
+    sheet: "토스 앱에서 바로 열려요",
+    fallback: "토스가 열리지 않았나요?<br />토스 앱을 설치한 뒤 다시 열어 주세요",
+  };
+  const showModal = (a, mode) => {
     current = a;
+    const mobile = mode !== "qr";
+    modal.classList.toggle("mobile", mobile);
     $("#modal-title").textContent = a.name;
+    $("#modal-desc").innerHTML = DESC[mode];
     const mi = $("#modal-icon");
     mi.innerHTML = iconHTML(a);
     mi.style.background = `linear-gradient(135deg,${a.colors?.[0]},${a.colors?.[1]})`;
-    $("#open-link").href = a.link;
+    $("#open-link").href = mobileLink(a);
+    $("#install-link").href = isAndroid ? STORE.android : STORE.ios;
     $("#modal-search").textContent = a.name;
     const qr = $("#qr");
     qr.innerHTML = "";
-    if (window.QRCode) new QRCode(qr, { text: a.link, width: 368, height: 368, colorDark: "#0e0c1d", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.M });
-    else qr.textContent = "QR을 불러오지 못했어요";
+    if (!mobile) {
+      if (window.QRCode) new QRCode(qr, { text: shareLink(a), width: 368, height: 368, colorDark: "#0e0c1d", colorLight: "#ffffff", correctLevel: QRCode.CorrectLevel.M });
+      else qr.textContent = "QR을 불러오지 못했어요";
+    }
     modal.hidden = false;
     $(".modal-x").focus();
   };
@@ -127,7 +165,7 @@
 
   const toast = (msg, ms = 1800) => { const t = $("#toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), ms); };
   $("#copy-link").addEventListener("click", async () => {
-    try { await navigator.clipboard.writeText(current.link); toast("링크를 복사했어요"); }
+    try { await navigator.clipboard.writeText(shareLink(current)); toast("링크를 복사했어요"); }
     catch { toast("복사에 실패했어요"); }
   });
 
@@ -138,6 +176,12 @@
   });
   const hot = APPS.find((a) => a.badge === "HOT") || APPS[0];
   $("#cta-top").addEventListener("click", (e) => { e.preventDefault(); if (hot) openApp(hot); });
+
+  /* ---------- ?open=<appName> 으로 들어온 경우 (PC QR·공유 링크) ----------
+     사용자 터치 없이 앱 주소로 이동하면 막히는 브라우저가 있어, 열기 버튼이 있는 창을 띄운다. */
+  const want = new URLSearchParams(location.search).get("open");
+  const wantApp = want && APPS.find((a) => a.appName === want);
+  if (wantApp) setTimeout(() => showModal(wantApp, isMobile ? "sheet" : "qr"), 300);
 
   /* ---------- 카드 3D 틸트 + 스포트라이트 ---------- */
   if (!isMobile && !reduced) {

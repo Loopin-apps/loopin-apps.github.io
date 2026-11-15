@@ -26,6 +26,13 @@
    - 로고: `<폴더>/assets/logo.png` → 192px로 줄여 `assets/icons/<폴더>.png`
 2. `apps.js`의 `APPS`에 항목 추가. `link`를 비우면 `intoss://<appName>`이 자동으로 쓰임.
 
+## 토스 링크 처리 (`main.js`)
+- `intoss://`는 토스가 없으면 브라우저 오류가 난다. 그래서:
+  - Android: `intent://<appName>#Intent;scheme=intoss;package=viva.republica.toss;S.browser_fallback_url=<Play 스토어>;end`
+  - iOS: `intoss://`로 시도 → 1.8초 뒤에도 페이지가 보이면 "토스 설치하기" 안내 창(App Store `id839333328`)
+  - PC QR·링크 복사: `?open=<appName>`이 붙은 사이트 주소. 이 주소로 들어오면 열기 버튼 창을 띄운다(터치 없이 앱 주소로 이동하면 막히는 브라우저가 있어서).
+- `link`에 https 공유 링크(앱 안 공유 버튼이 만드는 `minion.toss.im` 등)를 넣으면 그 링크를 그대로 쓴다. 토스가 없으면 스토어로 보내 주는 공식 링크라 가장 확실하다.
+
 ## 배포
 - `main`에 머지하면 GitHub Pages가 자동 배포(1~2분).
 - 작업 흐름: 작업 브랜치에서 커밋·푸시 → PR → 사용자가 머지 → Actions의 `pages build and deployment` 결과 확인.
