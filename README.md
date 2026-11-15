@@ -27,8 +27,10 @@ https://loopin-apps.github.io
 아이콘은 각 앱의 `assets/logo.png`를 192px로 줄여 `assets/icons/`에 넣었습니다. 아직 화면이 없는 불멍(bonfire)·소원 풍등(wish-lantern)은 넣지 않았습니다.
 
 ## 동작 방식
-- **모바일**: 카드를 누르면 `intoss://<appName>`으로 이동 → 토스 앱에서 열림. 안 열리면 "토스에서 '앱 이름' 검색" 안내가 뜸
-- **PC**: QR 코드 모달이 열려 휴대폰으로 스캔해 열 수 있음
+- **Android**: `intent://` 주소로 열어서, 토스가 있으면 앱이 열리고 없으면 Play 스토어로 이동
+- **iPhone**: `intoss://<appName>`으로 이동. 토스가 없으면 Safari 오류 뒤 "토스 설치하기" 안내 창이 뜸
+- **PC**: QR 창이 열림. QR과 "링크 복사"는 `https://loopin-apps.github.io/?open=<appName>` 주소라 휴대폰 카메라로 언제나 열 수 있고, 열면 "토스에서 열기·토스 설치하기" 창이 뜸
+- `apps.js`의 `link`에 앱 안 공유 버튼으로 만든 공식 공유 링크(`https://tossminiapp.com/s/...`)를 넣으면 위 처리 대신 그 링크를 그대로 씀. **현재 15개 앱 모두 공식 링크를 씀**
 - Google Analytics(gtag)를 붙이면 `open_app` 이벤트로 앱별 클릭 수가 집계됩니다.
 
 ## 효과
