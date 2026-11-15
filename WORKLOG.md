@@ -4,6 +4,16 @@
 
 ---
 
+## 2026-11-15 — 주소를 GitHub 조직으로 이전
+
+- 주소에 개인 계정 이름이 드러나서 무료 GitHub 조직 `Loopin-apps`를 만들고 저장소를 옮김(사용자 작업).
+- 저장소 이름을 `loopin-apps.github.io`로 바꿔 주소가 **https://loopin-apps.github.io** 가 됨.
+- 예전 개인 계정 주소는 자동으로 연결되지 않음. 이미 공유한 링크는 새 주소로 다시 공유해야 함.
+- 사이트·문서 안의 예전 주소와 개인 계정 이름을 새 주소로 바꿈(`index.html`의 공유 미리보기 주소, `README.md`, `CLAUDE.md`, 이 문서).
+- 남는 것: 커밋 작성자 표시와 예전 커밋 기록에는 개인 계정이 남아 있음(사이트 화면에는 안 보임).
+
+---
+
 ## 2026-11-15 — 하단 사업자 정보 제거
 
 - 사용자 요청으로 하단의 상호·대표 줄을 뺐다.
@@ -15,21 +25,21 @@
 ## 2026-11-13 — 사이트 첫 제작부터 Loopin 이름 변경까지
 
 ### 결과
-- **사이트 주소**: https://seongyeolpark.github.io
-- **저장소**: `seongyeolpark/seongyeolpark.github.io` (public, 처음 이름은 `website`)
+- **사이트 주소**: https://loopin-apps.github.io (2026-11-15에 조직으로 옮김, 처음엔 개인 계정 주소)
+- **저장소**: `Loopin-apps/loopin-apps.github.io` (public, 처음엔 개인 계정의 `website`)
 - **배포**: GitHub Pages, `main` 브랜치 `/ (root)`. `main`에 머지하면 1~2분 뒤 자동 배포
 - **사이트 이름**: Loopin (매일앱 → Loopin)
-- **수록 앱**: 앱인토스 미니앱 15개 (`seongyeolpark/toss-inapp` 기준)
+- **수록 앱**: 앱인토스 미니앱 15개 (`toss-inapp` 저장소 기준)
 
 ### 진행 순서
 | PR | 내용 | 배포 (KST) |
 |---|---|---|
 | (첫 커밋, `main` 시작점) | 정적 사이트 뼈대 + 예시 앱 6개 | — |
-| [#1](https://github.com/seongyeolpark/seongyeolpark.github.io/pull/1) | 실제 앱 15개(로고·`intoss://` 링크·카테고리 4개), 모바일 목록형 카드, 이름 "매일앱" | 11:04 |
-| [#2](https://github.com/seongyeolpark/seongyeolpark.github.io/pull/2) | 화려한 애니메이션(`fx.js`/`fx.css`) | 11:23 |
-| [#3](https://github.com/seongyeolpark/seongyeolpark.github.io/pull/3) | 버벅임 개선(흐림 필터·스타일 재계산 제거) | 11:43 |
-| [#4](https://github.com/seongyeolpark/seongyeolpark.github.io/pull/4) | 하단에 상호·대표 추가, 하단 문구 정리 | 11:51 |
-| [#5](https://github.com/seongyeolpark/seongyeolpark.github.io/pull/5) | 사이트 이름 매일앱 → Loopin | 11:58 |
+| [#1](https://github.com/Loopin-apps/loopin-apps.github.io/pull/1) | 실제 앱 15개(로고·`intoss://` 링크·카테고리 4개), 모바일 목록형 카드, 이름 "매일앱" | 11:04 |
+| [#2](https://github.com/Loopin-apps/loopin-apps.github.io/pull/2) | 화려한 애니메이션(`fx.js`/`fx.css`) | 11:23 |
+| [#3](https://github.com/Loopin-apps/loopin-apps.github.io/pull/3) | 버벅임 개선(흐림 필터·스타일 재계산 제거) | 11:43 |
+| [#4](https://github.com/Loopin-apps/loopin-apps.github.io/pull/4) | 하단에 상호·대표 추가, 하단 문구 정리 | 11:51 |
+| [#5](https://github.com/Loopin-apps/loopin-apps.github.io/pull/5) | 사이트 이름 매일앱 → Loopin | 11:58 |
 
 ### 결정과 이유
 - **정적 사이트(HTML/CSS/JS, 빌드 없음)**: GitHub Pages에 바로 올릴 수 있고, 앱 목록은 `apps.js` 하나만 고치면 되게 하려고.
@@ -70,7 +80,7 @@ GPU 없는 환경이라 절대값보다 상대 개선으로 볼 것.
 
 ### 겪은 문제와 해결
 - **GitHub Pages가 유료로 보임**: 비공개 저장소라서. 저장소를 public으로 바꿔 해결(비공개 유지가 필요하면 Cloudflare Pages 무료).
-- **주소에 `/webpage/`가 붙음**: 저장소 이름이 `계정명.github.io`가 아니면 `/저장소이름/`이 붙음. 이름을 정확히 `seongyeolpark.github.io`로 바꾸고 Pages를 다시 켜서 해결(unpublish 했다면 Pages를 꼭 다시 켜야 함).
+- **주소에 `/webpage/`가 붙음**: 저장소 이름이 `계정명.github.io`가 아니면 `/저장소이름/`이 붙음. 이름을 정확히 `<계정명>.github.io`로 바꾸고 Pages를 다시 켜서 해결(unpublish 했다면 Pages를 꼭 다시 켜야 함).
 - **`main` 브랜치가 없었음**: 첫 커밋(`c6493ec`)을 `main`으로 만들고 그 뒤를 PR로 머지.
 - **제목 글자 사이 간격이 벌어짐**: 글자 쪼개기 효과가 줄 사이 공백까지 글자로 감싸서. 공백만 있는 텍스트는 건너뛰게 수정.
 - **하단 연도 줄 삭제 시 스크립트 오류 위험**: `#year` 요소가 없어지면 `main.js`가 멈춤 → 요소가 있을 때만 연도를 넣게 수정.

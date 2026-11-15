@@ -3,9 +3,10 @@
 앱인토스 미니앱을 모아 소개하고 토스로 유입시키는 정적 웹사이트. 사용자는 한국어로 대화한다.
 날짜별 작업 내역과 결정 이유는 `WORKLOG.md`.
 
-- 사이트: https://seongyeolpark.github.io
-- 저장소: `seongyeolpark/seongyeolpark.github.io` (public)
-- 앱 소스: `seongyeolpark/toss-inapp` (private, 앱별 폴더)
+- 사이트: https://loopin-apps.github.io
+- 저장소: `Loopin-apps/loopin-apps.github.io` (public, GitHub 조직 소유)
+- 앱 소스: `toss-inapp` (개인 계정의 비공개 저장소, 앱별 폴더)
+- **사이트·문서·커밋 메시지·PR에 개인 계정 이름을 쓰지 않는다**(주소 노출을 피하려고 조직으로 옮김, 2026-11-15).
 
 ## 구조 (빌드 없음, HTML/CSS/JS만)
 | 파일 | 역할 |
