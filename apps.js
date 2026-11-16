@@ -14,9 +14,9 @@
  */
 window.SITE = {
   name: "Loopin",
-  tagline: "매일 여는 토스 미니앱 모음",
+  tagline: "설치·가입 없이 바로 여는 토스 미니앱",
   description:
-    "운세, 퀴즈, 습관 기록까지. 설치 없이 토스 안에서 바로 열리는 미니앱 15개를 만들고 있어요.",
+    "운세, 퀴즈, 습관 기록까지 15개 미니앱. 설치·회원가입 없이 토스에서 바로 열리고, 내 기록은 휴대폰에만 저장돼요.",
   contact: "", // 예: "mailto:hello@example.com" (비워두면 숨김)
 };
 
@@ -26,7 +26,7 @@ window.APPS = [
     name: "오늘의 운세",
     appName: "myfortune100",
     link: "https://tossminiapp.com/s/lRWp02z7", // 토스 공식 공유 링크(토스가 없으면 스토어로 이동)
-    desc: "별자리만 고르면 매일 새로운 총운·애정운·금전운을 보여주고, 한 달 흐름을 캘린더로 돌아봐요.",
+    desc: "띠나 별자리를 고르면 매일 새로운 총운·애정운·금전운을 보여주고, 한 달 흐름을 캘린더로 돌아봐요.",
     tag: "운세·재미",
     icon: "assets/icons/daily-fortune.png",
     emoji: "🔮",

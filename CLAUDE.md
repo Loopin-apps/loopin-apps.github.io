@@ -17,6 +17,8 @@
 | `style.css` | 기본 스타일과 반응형 |
 | `fx.js` / `fx.css` | 화려한 효과(인트로, 글자 등장, 도는 아이콘, 클릭 폭죽, 커서 링 등). 동작 줄이기 설정이면 모두 꺼짐 |
 | `assets/icons/` | 앱 로고 192px (`toss-inapp/<폴더>/assets/logo.png`를 줄인 것) |
+| `assets/og/` | 공유 미리보기 이미지 1200×630 JPG. `site.jpg`(사이트) + `<폴더명>.jpg`(앱별). `tools/make-og.js`로 생성 |
+| `tools/make-og.js` | 미리보기 이미지 생성 스크립트(`apps.js`를 읽음). 앱을 추가·수정하면 다시 실행 |
 
 ## 앱 추가·수정
 1. `toss-inapp`에서 정보 확인:
@@ -25,6 +27,7 @@
    - 설명: `<폴더>/PRD.md`의 한 줄 정의
    - 로고: `<폴더>/assets/logo.png` → 192px로 줄여 `assets/icons/<폴더>.png`
 2. `apps.js`의 `APPS`에 항목 추가. `link`를 비우면 `intoss://<appName>`이 자동으로 쓰임.
+3. 미리보기 이미지 다시 만들기: `TOSS_INAPP=<toss-inapp 경로> FONT=<PretendardVariable.woff2 경로> node tools/make-og.js` (Pretendard는 npm `pretendard` 패키지에 있음. jsdelivr는 작업 환경에서 막혀 있음)
 
 ## 토스 링크 처리 (`main.js`)
 - `intoss://`는 토스가 없으면 브라우저 오류가 난다. 그래서:
@@ -43,6 +46,7 @@
 - **토스 공식처럼 보이는 표현 금지**("토스 공식 파트너" 등). 하단의 "공식 사이트가 아니에요" 문구 유지.
 - 로또 추첨기는 당첨 확률·예측 표현 금지, "재미용 · 만 19세 이상" 유지. 두뇌 체크·약 챙김은 의료 표현("치매/예방/진단/치료") 금지.
 - 오늘의 운세에 유료 결제가 있으니 "전부 무료" 같은 표현을 쓰지 않는다.
+- **편의성·안심 문구는 확인된 사실만**(2026-11-16 앱 코드 확인): 15개 앱 모두 로그인·자체 서버 없음, 기록은 휴대폰 `localStorage`에만 저장. 예외는 두 곳 — 다녀왔어는 주소를 찾을 때 위치 좌표를 OpenStreetMap에 보내고, 로또 추첨기는 공개 당첨번호만 내려받음(사용자 데이터 전송 없음). "보안 걱정 없음", "완벽한 보안" 같은 단정은 쓰지 않는다. `#why` 섹션의 작은 안내 문구(기기 변경 시 기록 안 옮겨짐, 다녀왔어 예외)는 유지한다. 앱에 서버 전송·로그인이 생기면 이 문구부터 고친다.
 - **성능**: 화면 전체 크기 요소에 `filter: blur`/`backdrop-filter`/`mix-blend-mode`를 쓰지 않는다. `body`·`html`에 자주 바뀌는 CSS 변수를 쓰지 않는다. `requestAnimationFrame` 루프는 멈추거나 화면 밖이면 쉬게 한다. 움직임은 `transform`/`opacity`로만.
 - 효과를 바꾼 뒤에는 데스크톱(1440px)과 휴대폰(iPhone 13) 화면, 페이지 오류, 모바일 가로 스크롤(`scrollWidth`가 화면 폭과 같은지)을 확인한다.
 
