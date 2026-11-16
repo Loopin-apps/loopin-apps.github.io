@@ -69,7 +69,7 @@ p{font-size:32px;line-height:1.45;color:#cdc7e8;font-weight:500;letter-spacing:-
 <div class="wrap">
   <div class="icon"><img src="${hiRes(a)}"></div>
   <div class="txt">
-    <span class="chip"><b></b>토스 미니앱 · 설치 없이 바로</span>
+    <span class="chip"><b></b>설치·가입 없이 토스에서 바로</span>
     <h1>${a.name}</h1>
     <p>${a.desc}</p>
     <span class="cta">토스에서 바로 써보기 →</span>${a.note ? `<span class="note">${a.note}</span>` : ''}
@@ -103,7 +103,7 @@ p{font-size:30px;color:#cdc7e8;line-height:1.45;font-weight:500}
   <div class="left">
     <span class="chip"><b></b>APPS IN TOSS</span>
     <h1>토스 안에서<br><span class="g">바로 실행</span>되는<br>작은 앱들</h1>
-    <p>운세·퀴즈·습관 기록까지<br>미니앱 ${n}개를 만나보세요</p>
+    <p>미니앱 ${n}개, 설치·가입 없이 바로<br>기록은 내 휴대폰에만 저장돼요</p>
   </div>
   <div class="grid">${tiles}</div>
 </div>
