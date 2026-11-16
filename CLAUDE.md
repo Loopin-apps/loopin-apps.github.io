@@ -17,6 +17,8 @@
 | `style.css` | 기본 스타일과 반응형 |
 | `fx.js` / `fx.css` | 화려한 효과(인트로, 글자 등장, 도는 아이콘, 클릭 폭죽, 커서 링 등). 동작 줄이기 설정이면 모두 꺼짐 |
 | `assets/icons/` | 앱 로고 192px (`toss-inapp/<폴더>/assets/logo.png`를 줄인 것) |
+| `assets/og/` | 공유 미리보기 이미지 1200×630 JPG. `site.jpg`(사이트) + `<폴더명>.jpg`(앱별). `tools/make-og.js`로 생성 |
+| `tools/make-og.js` | 미리보기 이미지 생성 스크립트(`apps.js`를 읽음). 앱을 추가·수정하면 다시 실행 |
 
 ## 앱 추가·수정
 1. `toss-inapp`에서 정보 확인:
@@ -25,6 +27,7 @@
    - 설명: `<폴더>/PRD.md`의 한 줄 정의
    - 로고: `<폴더>/assets/logo.png` → 192px로 줄여 `assets/icons/<폴더>.png`
 2. `apps.js`의 `APPS`에 항목 추가. `link`를 비우면 `intoss://<appName>`이 자동으로 쓰임.
+3. 미리보기 이미지 다시 만들기: `TOSS_INAPP=<toss-inapp 경로> FONT=<PretendardVariable.woff2 경로> node tools/make-og.js` (Pretendard는 npm `pretendard` 패키지에 있음. jsdelivr는 작업 환경에서 막혀 있음)
 
 ## 토스 링크 처리 (`main.js`)
 - `intoss://`는 토스가 없으면 브라우저 오류가 난다. 그래서:
