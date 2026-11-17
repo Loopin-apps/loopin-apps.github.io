@@ -10,15 +10,19 @@
 }
 html:not(.has-intro) #intro { display: none; }
 .intro-inner { display: flex; flex-direction: column; align-items: center; gap: 18px; }
-.intro-orb {
-  width: 64px; height: 64px; border-radius: 50%;
-  background: conic-gradient(var(--c1), var(--c2), var(--c3), var(--c4), var(--c1));
-  box-shadow: 0 0 60px var(--c2), 0 0 120px var(--c1);
-  animation: intro-orb 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) both, spin 1.2s linear infinite;
+/* 로고(∞): 선이 그려지고, 흰 빛이 고리를 따라 한 바퀴 돈다 */
+.intro-logo {
+  width: 168px; height: 84px; overflow: visible;
+  filter: drop-shadow(0 0 22px rgba(168, 85, 247, 0.75));
+  animation: intro-pop 0.9s cubic-bezier(0.2, 0.8, 0.2, 1) both;
 }
+.intro-logo path:first-of-type { stroke-dasharray: 100; stroke-dashoffset: 100; animation: intro-draw 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.05s forwards; }
+.intro-logo .spark { stroke-dasharray: 7 93; stroke-dashoffset: 100; opacity: 0; animation: intro-spark 1s linear 0.15s forwards; }
 .intro-word { display: flex; font-size: 44px; font-weight: 850; letter-spacing: -0.04em; overflow: hidden; }
 .intro-word span { display: inline-block; animation: intro-ch 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; animation-delay: calc(0.25s + var(--i) * 0.09s); }
-@keyframes intro-orb { 0% { transform: scale(0); } 60% { transform: scale(1.25); } 100% { transform: scale(1); } }
+@keyframes intro-pop { 0% { transform: scale(0.75); opacity: 0; } 30% { opacity: 1; } 100% { transform: scale(1); } }
+@keyframes intro-draw { to { stroke-dashoffset: 0; } }
+@keyframes intro-spark { 0% { opacity: 0; } 10% { opacity: 1; } 85% { opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
 @keyframes intro-ch { from { transform: translateY(110%) rotate(12deg); opacity: 0; } }
 @keyframes intro-out {
   0% { clip-path: circle(150% at 50% 50%); }
