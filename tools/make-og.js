@@ -35,7 +35,7 @@ body{font-family:P,sans-serif;color:#f5f3ff;background:#07060f;position:relative
   radial-gradient(1.5px 1.5px at 78% 30%,#fff9,transparent),radial-gradient(1px 1px at 92% 64%,#fff7,transparent),
   radial-gradient(1px 1px at 52% 52%,#fff6,transparent),radial-gradient(1.5px 1.5px at 33% 44%,#fff6,transparent)}
 .brand{position:absolute;right:56px;bottom:44px;display:flex;align-items:center;gap:12px;font-size:28px;font-weight:800;letter-spacing:.02em;opacity:.9}
-.mk{width:46px;height:23px;overflow:visible;filter:drop-shadow(0 0 8px #a855f799)}
+.mk{width:34px;height:34px;overflow:visible;filter:drop-shadow(0 0 8px #a855f799)}
 `;
 // 앱 아이콘은 toss-inapp 의 원본 600px 로고를 우선 사용(없으면 사이트의 192px)
 const hiRes = (a) => {
@@ -75,7 +75,7 @@ p{font-size:32px;line-height:1.45;color:#cdc7e8;font-weight:500;letter-spacing:-
     <span class="cta">토스에서 바로 써보기 →</span>${a.note ? `<span class="note">${a.note}</span>` : ''}
   </div>
 </div>
-<div class="brand"><svg class="mk" viewBox="0 0 100 50"><defs><linearGradient id="lg-og" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3182f6"/><stop offset=".45" stop-color="#a855f7"/><stop offset=".75" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><path d="M90.0 25.0 L89.7 27.6 L89.0 30.1 L87.8 32.4 L86.2 34.4 L84.3 36.0 L82.2 37.3 L80.0 38.3 L77.7 38.9 L75.4 39.1 L73.2 39.1 L71.0 38.8 L68.9 38.3 L66.8 37.7 L64.9 36.9 L63.1 35.9 L61.4 34.9 L59.8 33.8 L58.3 32.6 L56.8 31.4 L55.4 30.2 L54.0 28.9 L52.6 27.6 L51.3 26.3 L50.0 25.0 L48.7 23.7 L47.4 22.4 L46.0 21.1 L44.6 19.8 L43.2 18.6 L41.7 17.4 L40.2 16.2 L38.6 15.1 L36.9 14.1 L35.1 13.1 L33.2 12.3 L31.1 11.7 L29.0 11.2 L26.8 10.9 L24.6 10.9 L22.3 11.1 L20.0 11.7 L17.8 12.7 L15.7 14.0 L13.8 15.6 L12.2 17.6 L11.0 19.9 L10.3 22.4 L10.0 25.0 L10.3 27.6 L11.0 30.1 L12.2 32.4 L13.8 34.4 L15.7 36.0 L17.8 37.3 L20.0 38.3 L22.3 38.9 L24.6 39.1 L26.8 39.1 L29.0 38.8 L31.1 38.3 L33.2 37.7 L35.1 36.9 L36.9 35.9 L38.6 34.9 L40.2 33.8 L41.7 32.6 L43.2 31.4 L44.6 30.2 L46.0 28.9 L47.4 27.6 L48.7 26.3 L50.0 25.0 L51.3 23.7 L52.6 22.4 L54.0 21.1 L55.4 19.8 L56.8 18.6 L58.3 17.4 L59.8 16.2 L61.4 15.1 L63.1 14.1 L64.9 13.1 L66.8 12.3 L68.9 11.7 L71.0 11.2 L73.2 10.9 L75.4 10.9 L77.7 11.1 L80.0 11.7 L82.2 12.7 L84.3 14.0 L86.2 15.6 L87.8 17.6 L89.0 19.9 L89.7 22.4Z" fill="none" stroke="url(#lg-og)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg>${SITE.name}</div>
+<div class="brand"><svg class="mk" viewBox="0 0 100 100"><defs><linearGradient id="lg-og" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3182f6"/><stop offset=".45" stop-color="#a855f7"/><stop offset=".75" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><path d="M82.84 41.20 A34 34 0 1 1 58.80 17.16" fill="none" stroke="url(#lg-og)" stroke-width="16" stroke-linecap="round"/><circle class="ring-dot" cx="74.04" cy="25.96" r="8.5" fill="#fff"/></svg>${SITE.name}</div>
 </body></html>`;
 };
 
@@ -107,7 +107,7 @@ p{font-size:30px;color:#cdc7e8;line-height:1.45;font-weight:500}
   </div>
   <div class="grid">${tiles}</div>
 </div>
-<div class="brand"><svg class="mk" viewBox="0 0 100 50"><defs><linearGradient id="lg-og" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3182f6"/><stop offset=".45" stop-color="#a855f7"/><stop offset=".75" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><path d="M90.0 25.0 L89.7 27.6 L89.0 30.1 L87.8 32.4 L86.2 34.4 L84.3 36.0 L82.2 37.3 L80.0 38.3 L77.7 38.9 L75.4 39.1 L73.2 39.1 L71.0 38.8 L68.9 38.3 L66.8 37.7 L64.9 36.9 L63.1 35.9 L61.4 34.9 L59.8 33.8 L58.3 32.6 L56.8 31.4 L55.4 30.2 L54.0 28.9 L52.6 27.6 L51.3 26.3 L50.0 25.0 L48.7 23.7 L47.4 22.4 L46.0 21.1 L44.6 19.8 L43.2 18.6 L41.7 17.4 L40.2 16.2 L38.6 15.1 L36.9 14.1 L35.1 13.1 L33.2 12.3 L31.1 11.7 L29.0 11.2 L26.8 10.9 L24.6 10.9 L22.3 11.1 L20.0 11.7 L17.8 12.7 L15.7 14.0 L13.8 15.6 L12.2 17.6 L11.0 19.9 L10.3 22.4 L10.0 25.0 L10.3 27.6 L11.0 30.1 L12.2 32.4 L13.8 34.4 L15.7 36.0 L17.8 37.3 L20.0 38.3 L22.3 38.9 L24.6 39.1 L26.8 39.1 L29.0 38.8 L31.1 38.3 L33.2 37.7 L35.1 36.9 L36.9 35.9 L38.6 34.9 L40.2 33.8 L41.7 32.6 L43.2 31.4 L44.6 30.2 L46.0 28.9 L47.4 27.6 L48.7 26.3 L50.0 25.0 L51.3 23.7 L52.6 22.4 L54.0 21.1 L55.4 19.8 L56.8 18.6 L58.3 17.4 L59.8 16.2 L61.4 15.1 L63.1 14.1 L64.9 13.1 L66.8 12.3 L68.9 11.7 L71.0 11.2 L73.2 10.9 L75.4 10.9 L77.7 11.1 L80.0 11.7 L82.2 12.7 L84.3 14.0 L86.2 15.6 L87.8 17.6 L89.0 19.9 L89.7 22.4Z" fill="none" stroke="url(#lg-og)" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/></svg>${SITE.name}</div>
+<div class="brand"><svg class="mk" viewBox="0 0 100 100"><defs><linearGradient id="lg-og" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#3182f6"/><stop offset=".45" stop-color="#a855f7"/><stop offset=".75" stop-color="#ec4899"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><path d="M82.84 41.20 A34 34 0 1 1 58.80 17.16" fill="none" stroke="url(#lg-og)" stroke-width="16" stroke-linecap="round"/><circle class="ring-dot" cx="74.04" cy="25.96" r="8.5" fill="#fff"/></svg>${SITE.name}</div>
 </body></html>`;
 };
 
