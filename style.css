@@ -61,7 +61,7 @@ img { max-width: 100%; display: block; }
 }
 .nav.scrolled { background: rgba(14, 12, 29, 0.85); }
 .logo { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: 0.04em; }
-.logo-mark { width: 34px; height: 17px; flex: none; overflow: visible; filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.6)); }
+.logo-mark { width: 24px; height: 24px; flex: none; overflow: visible; filter: drop-shadow(0 0 6px rgba(168, 85, 247, 0.6)); }
 @keyframes spin { to { transform: rotate(360deg); } }
 .nav nav { display: flex; align-items: center; gap: 22px; font-size: 15px; color: var(--muted); }
 .nav nav a:not(.btn):hover { color: var(--fg); }
