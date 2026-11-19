@@ -4,6 +4,61 @@
 
 ---
 
+## 한눈에 보기 (2026-11-19 기준)
+
+### 현재 상태
+- **사이트**: https://loopin-apps.github.io (GitHub Pages, `main` 머지 시 자동 배포)
+- **저장소**: `Loopin-apps/loopin-apps.github.io` (GitHub 조직, public)
+- **이름·로고**: Loopin / 열린 고리 + 점(∞ 모양은 쓰지 않음)
+- **앱**: 15개, 모두 토스 공식 공유 링크로 연결(토스가 없으면 스토어로 이동)
+- **화면 구성**: 인트로 → 첫 화면(폰 목업·도는 아이콘) → 흐르는 띠 → 안심 포인트 → 앱 목록(카테고리 필터) → 이용 방법 → 인기 앱 열기 → 하단(저작권·공식 아님 안내)
+- **공유 미리보기 이미지**: 사이트 1장 + 앱별 15장(`assets/og/`). 앱별 이미지는 앱 공유 링크에 아직 연결 안 됨
+- **사이트에 넣지 않는 것**: 사업자 정보(상호·대표·등록번호·주소), 개인 계정 이름, 상표 문장
+
+### 전체 PR과 배포 시각(KST)
+| PR | 배포 | 내용 |
+|---|---|---|
+| [#1](https://github.com/Loopin-apps/loopin-apps.github.io/pull/1) | 11-13 11:04 | 실제 앱 15개(로고·링크·카테고리 4개), 모바일 목록형 카드, 이름 "매일앱" |
+| [#2](https://github.com/Loopin-apps/loopin-apps.github.io/pull/2) | 11-13 11:23 | 화려한 애니메이션(`fx.js`/`fx.css`) |
+| [#3](https://github.com/Loopin-apps/loopin-apps.github.io/pull/3) | 11-13 11:43 | 버벅임 1차 개선(화면 전체 흐림 필터·마우스 이동마다 스타일 재계산 제거) |
+| [#4](https://github.com/Loopin-apps/loopin-apps.github.io/pull/4) | 11-13 11:51 | 하단에 상호·대표 추가(→ #7에서 제거) |
+| [#5](https://github.com/Loopin-apps/loopin-apps.github.io/pull/5) | 11-13 11:58 | 사이트 이름 매일앱 → Loopin |
+| [#6](https://github.com/Loopin-apps/loopin-apps.github.io/pull/6) | 11-13 12:35 | `WORKLOG.md`·`CLAUDE.md` 추가 |
+| [#7](https://github.com/Loopin-apps/loopin-apps.github.io/pull/7) | 11-15 21:38 | 하단 사업자 정보 제거 |
+| [#8](https://github.com/Loopin-apps/loopin-apps.github.io/pull/8) | 11-15 21:54 | 주소를 GitHub 조직(`loopin-apps.github.io`)으로 이전, 계정 이름 정리 |
+| [#9](https://github.com/Loopin-apps/loopin-apps.github.io/pull/9) | 11-15 21:59 | WORKLOG 11-15 정리 |
+| [#10](https://github.com/Loopin-apps/loopin-apps.github.io/pull/10) | 11-16 00:03 | 토스 미설치 시 링크 오류 해결 + 15개 앱 공식 공유 링크(`tossminiapp.com/s/...`) |
+| [#11](https://github.com/Loopin-apps/loopin-apps.github.io/pull/11) | 11-16 17:11 | 공유 미리보기 이미지 16장, 편의성·안심 섹션, 오늘의 운세 "띠나 별자리" |
+| [#12](https://github.com/Loopin-apps/loopin-apps.github.io/pull/12) | 11-16 17:15 | 안심 섹션 화면 깨짐(브라우저 캐시) 수정, 아이콘 색·간격, 문구 정리 |
+| [#13](https://github.com/Loopin-apps/loopin-apps.github.io/pull/13) | 11-17 17:37 | 회사 로고 ∞ 적용(→ #15에서 교체) |
+| [#14](https://github.com/Loopin-apps/loopin-apps.github.io/pull/14) | 11-17 17:42 | 하단 저작권 표시 `© 2026 Loopin. All rights reserved.` |
+| [#15](https://github.com/Loopin-apps/loopin-apps.github.io/pull/15) | 11-18 11:36 | 로고 교체 ∞ → 열린 고리(같은 이름 회사와 겹침) |
+| [#16](https://github.com/Loopin-apps/loopin-apps.github.io/pull/16) | 11-19 20:37 | 버벅임 2차 개선(반복 애니메이션 정리, 30 → 약 44.5fps) |
+
+### 남은 일·후보
+- **방문 기록(분석 도구) 붙이기** — 아래 2026-11-19 "방문 기록 검토" 참고. 사용자가 도구를 고르고 가입해야 진행.
+- **실기기 확인**: 휴대폰에서 앱 링크(특히 오늘의 타로 `fTtPUXu`, 코드가 7자), PC QR, 카카오톡 미리보기 이미지, 버벅임 체감.
+- **앱별 미리보기 이미지를 앱 공유 링크에 연결**: `toss-inapp` 각 앱 공유 코드 수정 + 앱 업데이트 필요.
+- **이름 상표 확인**: 같은 이름(LOOPIN)의 다른 회사가 있음. 키프리스에서 "Loopin"·"루핀" 9류·42류 등록 여부 확인 권장(미확인).
+- **토스 안 노출 늘리기(콘솔, 사용자 작업)**: 핵심 지표(전환 지표) 등록, 등록 정보(주요 기능·상세 설명·스크린샷) 보강, 리뷰 요청 확대.
+- **바깥 홍보 후보**: 네이버 블로그·카페, 카카오톡·밴드, 짧은 영상(로또 추첨기·오늘의 달). 앱별 홍보 문구 초안은 아직 안 씀.
+- 작업 브랜치 `claude/tender-clarke-o5ux54`는 남겨 둠(원격 삭제가 작업 환경에서 막힘, 내용은 모두 `main`에 있음).
+
+---
+
+## 2026-11-19 — 방문 기록 검토(아직 적용 안 함)
+
+- 질문: 사이트 접속 기록을 볼 수 있는가 → **지금은 볼 수 없음.** 분석 도구가 없고, GitHub Pages는 방문 통계를 주지 않음(저장소 Insights → Traffic은 저장소 페이지 방문만). 작업 환경에서 사이트에 접속도 막혀 있음.
+- 지금 볼 수 있는 것: 앱인토스 콘솔 유입 경로의 외부 유입(`external_*`). 사이트에서 왔는지 카카오톡 공유에서 왔는지는 구분 안 됨.
+- 후보:
+  - **GoatCounter(추천)**: 무료, 쿠키 없음, 방문·유입 경로·기기 + **앱 카드별 클릭 수** 집계 가능. 개인·비영리 무료, 회사는 후원 권장 방식.
+  - Cloudflare Web Analytics: 무료, 쿠키 없음, 카드 클릭은 못 셈.
+  - Google Analytics: 가장 자세하지만 쿠키 사용 → 개인정보 처리 안내 필요, 사이트의 "개인정보를 모으지 않아요" 메시지와 어긋날 수 있음.
+- 코드 준비 상태: `main.js`의 앱 열기에 `gtag` 이벤트(`open_app`) 자리만 있음. 도구가 정해지면 방문 기록·카드 클릭·"인기 앱 열기" 클릭을 붙일 예정.
+- 다음 단계: 사용자가 도구를 고르고 가입해 사이트 코드를 알려 주면 적용.
+
+---
+
 ## 2026-11-19 — 버벅임 2차 개선
 
 - 사용자: "살짝 버벅이는 것 같아".
