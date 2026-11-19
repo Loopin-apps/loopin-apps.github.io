@@ -232,7 +232,7 @@
     W = innerWidth; H = innerHeight;
     cv.width = W * dpr; cv.height = H * dpr; cv.style.width = W + "px"; cv.style.height = H + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    stars = Array.from({ length: Math.min(140, Math.round((W * H) / 12000)) }, () => ({
+    stars = Array.from({ length: (isMobile ? Math.min(60, Math.round((W * H) / 16000)) : Math.min(140, Math.round((W * H) / 12000))) }, () => ({
       x: Math.random() * W, y: Math.random() * H, r: Math.random() * 1.3 + 0.2,
       v: Math.random() * 0.25 + 0.05, t: Math.random() * Math.PI * 2,
     }));
@@ -245,7 +245,7 @@
   let last = 0;
   const draw = (now = 0) => {
     if (!reduced) requestAnimationFrame(draw);
-    if (document.hidden || now - last < 33) return; // 30fps면 충분
+    if (document.hidden || now - last < (isMobile ? 50 : 33)) return; // PC 30fps, 휴대폰 20fps면 충분
     last = now;
     ctx.clearRect(0, 0, W, H);
     for (const s of stars) {
