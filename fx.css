@@ -42,24 +42,20 @@ html:not(.has-intro) #intro { display: none; }
 /* ---------- 제목 글자별 등장 ---------- */
 h1 .ch {
   display: inline-block; opacity: 0; transform-origin: 50% 100%;
-  transform: translateY(70%) rotateX(-90deg) scale(0.8); filter: blur(8px);
+  transform: translateY(70%) rotateX(-90deg) scale(0.8);
 }
 h1.in .ch { animation: ch-up 0.9s cubic-bezier(0.2, 0.9, 0.25, 1.2) forwards; animation-delay: calc(0.15s + var(--i) * 0.035s); }
-@keyframes ch-up { to { opacity: 1; transform: none; filter: none; } }
+@keyframes ch-up { to { opacity: 1; transform: none; } }
 h1 .ch.sp { width: 0.28em; }
 
 /* 단어 교체(스크램블) 중 반짝임 */
 .gradient-text.scrambling { filter: drop-shadow(0 0 18px rgba(192, 132, 252, 0.8)); }
 
-/* ---------- 섹션 제목 빛 지나가기 ---------- */
+/* ---------- 섹션 제목: 고정 그라디언트 (빛이 지나가는 애니메이션은 스크롤 중 글자를 계속 다시 그려 뺐음) ---------- */
 .section-head h2, .cta-card h2 {
-  background: linear-gradient(100deg, #fff 40%, #e9d5ff 46%, #f0abfc 50%, #93c5fd 54%, #fff 60%);
-  background-size: 300% 100%; background-position: 100% 0;
+  background: linear-gradient(100deg, #fff 30%, #e9d5ff 55%, #f0abfc 75%, #93c5fd);
   -webkit-background-clip: text; background-clip: text; color: transparent;
 }
-.section-head.in h2, .cta-card.in h2 { animation: sweep 2.4s 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards, sweep-loop 7s 3s linear infinite; }
-@keyframes sweep { from { background-position: 100% 0; } to { background-position: 0% 0; } }
-@keyframes sweep-loop { 0%, 70% { background-position: 100% 0; } 100% { background-position: 0% 0; } }
 
 /* ---------- 폰 주위를 도는 앱 아이콘 ---------- */
 .phone { z-index: 5; }
@@ -89,8 +85,6 @@ h1 .ch.sp { width: 0.28em; }
 @keyframes shine { to { left: 130%; } }
 .card.reveal { transform: translateY(60px) scale(0.92) rotate(-2deg); }
 .card.reveal.in { transition: opacity 0.8s, filter 0.8s, border-color 0.3s, transform 0.6s cubic-bezier(0.2, 1.4, 0.4, 1); }
-.card-icon { animation: icon-float 5s ease-in-out infinite; animation-delay: calc(var(--d, 0s) * -10); }
-@keyframes icon-float { 50% { translate: 0 -5px; } }
 
 /* ---------- 버튼 ---------- */
 .btn-primary, .nav .btn { transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s, translate 0.2s ease-out; }
@@ -139,6 +133,10 @@ h1 .ch.sp { width: 0.28em; }
 /* ---------- 마키: 아이콘 + 반대 방향 두 번째 줄 ---------- */
 .marquee-track img { width: 1.1em; height: 1.1em; border-radius: 0.3em; vertical-align: -0.15em; }
 .marquee-track.rev { animation-direction: reverse; animation-duration: 38s; margin-top: 14px; opacity: 0.55; font-size: 0.8em; }
+
+/* 화면 밖에 있는 반복 애니메이션은 멈춤(fx.js가 .off 클래스를 붙임) */
+.hero.off .phone, .hero.off .orbit, .hero.off .pulse::after,
+.marquee.off .marquee-track, .cta-card.off .cta-glow, .cta-card.off .bubble { animation-play-state: paused; }
 
 @media (max-width: 600px) {
   .orbit-icon { width: 42px; height: 42px; margin: -21px 0 0 -21px; border-radius: 12px; }

@@ -53,7 +53,7 @@
   const stage = $(".phone-stage");
   const ring = document.createElement("div");
   ring.className = "orbit-icons";
-  const orbitApps = APPS.filter((a) => a.icon).slice(0, 10);
+  const orbitApps = APPS.filter((a) => a.icon).slice(0, finePointer ? 10 : 7);
   const icons = orbitApps.map((a) => {
     const im = new Image(); im.src = a.icon; im.alt = ""; im.className = "orbit-icon"; ring.appendChild(im); return im;
   });
@@ -214,6 +214,10 @@
     });
     cta.prepend(wrap);
   }
+
+  /* ---------- 화면 밖 반복 애니메이션 멈춤 ---------- */
+  const offIO = new IntersectionObserver((es) => es.forEach((e) => e.target.classList.toggle("off", !e.isIntersecting)));
+  [".hero", ".marquee", ".cta-card"].forEach((s) => { const el = $(s); if (el) offIO.observe(el); });
 
   /* ---------- 마키 두 번째 줄 (반대 방향, 아이콘) ---------- */
   const mq = $(".marquee");
