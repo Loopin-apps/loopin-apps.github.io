@@ -1,6 +1,6 @@
 # Loopin — 토스 미니앱 모음
 
-https://loopin-apps.github.io
+https://apps.loopin.work (예전 주소 `loopin-apps.github.io`는 자동으로 새 주소로 이동)
 
 앱인토스 미니앱 링크를 모아 사용자를 유입시키는 정적 웹사이트입니다. 빌드 과정 없이 HTML/CSS/JS만 사용합니다.
 
@@ -29,12 +29,12 @@ https://loopin-apps.github.io
 ## 동작 방식
 - **Android**: `intent://` 주소로 열어서, 토스가 있으면 앱이 열리고 없으면 Play 스토어로 이동
 - **iPhone**: `intoss://<appName>`으로 이동. 토스가 없으면 Safari 오류 뒤 "토스 설치하기" 안내 창이 뜸
-- **PC**: QR 창이 열림. QR과 "링크 복사"는 `https://loopin-apps.github.io/?open=<appName>` 주소라 휴대폰 카메라로 언제나 열 수 있고, 열면 "토스에서 열기·토스 설치하기" 창이 뜸
+- **PC**: QR 창이 열림. QR과 "링크 복사"는 `https://apps.loopin.work/?open=<appName>` 주소라 휴대폰 카메라로 언제나 열 수 있고, 열면 "토스에서 열기·토스 설치하기" 창이 뜸
 - `apps.js`의 `link`에 앱 안 공유 버튼으로 만든 공식 공유 링크(`https://tossminiapp.com/s/...`)를 넣으면 위 처리 대신 그 링크를 그대로 씀. **현재 15개 앱 모두 공식 링크를 씀**
 - Google Analytics(gtag)를 붙이면 `open_app` 이벤트로 앱별 클릭 수가 집계됩니다.
 
 ## 공유 미리보기 이미지
-`assets/og/`에 사이트(`site.jpg`)와 앱별(`<폴더명>.jpg`) 이미지가 있습니다. 사이트 이미지는 `index.html`의 `og:image`로 연결돼 있고, 앱별 이미지는 각 앱의 공유 링크에 붙일 때 씁니다(`https://loopin-apps.github.io/assets/og/<폴더명>.jpg`). 만드는 방법은 `tools/make-og.js` 맨 위 주석을 보세요.
+`assets/og/`에 사이트(`site.jpg`)와 앱별(`<폴더명>.jpg`) 이미지가 있습니다. 사이트 이미지는 `index.html`의 `og:image`로 연결돼 있고, 앱별 이미지는 각 앱의 공유 링크에 붙일 때 씁니다(`https://apps.loopin.work/assets/og/<폴더명>.jpg`). 만드는 방법은 `tools/make-og.js` 맨 위 주석을 보세요.
 
 ## 효과
 `fx.js`/`fx.css`에 모여 있습니다(인트로, 글자 등장, 단어 스크램블, 폰 주위를 도는 아이콘, 클릭 폭죽, 커서 링, 자석 버튼, 별자리·별똥별, 스크롤 진행 막대). 기기의 "동작 줄이기" 설정이 켜져 있으면 모두 꺼집니다. 효과를 빼고 싶으면 `index.html`에서 두 파일을 불러오는 줄을 지우면 됩니다.

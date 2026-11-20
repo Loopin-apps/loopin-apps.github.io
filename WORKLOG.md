@@ -4,10 +4,22 @@
 
 ---
 
+## 2026-11-20 — 개인 도메인 `apps.loopin.work` 연결
+
+- 사용자가 `loopin.work` 도메인을 구매. 사이트 주소를 하위 도메인 `apps.loopin.work`로.
+- 저장소 쪽(이 작업): 루트에 `CNAME` 파일(`apps.loopin.work`) 추가, `index.html`의 공유 미리보기 주소(`og:url`·`og:image`)를 새 주소로, `README.md`·`CLAUDE.md` 주소 갱신. QR·링크 복사의 `?open=` 주소는 `location.origin`을 써서 자동으로 새 주소가 됨.
+- 사용자 쪽(DNS·GitHub 설정):
+  1. 도메인 구매처 DNS에 **CNAME 레코드**: 호스트 `apps` → 값 `loopin-apps.github.io`
+  2. (권장) GitHub 조직 설정 → Pages → **도메인 인증**(`loopin.work`), 구매처 DNS에 TXT 레코드 추가 — 다른 사람이 도메인을 가로채 쓰는 것 방지
+  3. 저장소 Settings → Pages → Custom domain에 `apps.loopin.work`가 보이는지 확인, DNS 확인 뒤 **Enforce HTTPS** 켜기
+- 예전 주소 `loopin-apps.github.io`로 들어오면 GitHub이 새 주소로 자동 이동시킴.
+
+---
+
 ## 한눈에 보기 (2026-11-19 기준)
 
 ### 현재 상태
-- **사이트**: https://loopin-apps.github.io (GitHub Pages, `main` 머지 시 자동 배포)
+- **사이트**: https://apps.loopin.work (2026-11-20 개인 도메인 연결, 예전 `loopin-apps.github.io`는 자동 이동. GitHub Pages, `main` 머지 시 자동 배포)
 - **저장소**: `Loopin-apps/loopin-apps.github.io` (GitHub 조직, public)
 - **이름·로고**: Loopin / 열린 고리 + 점(∞ 모양은 쓰지 않음)
 - **앱**: 15개, 모두 토스 공식 공유 링크로 연결(토스가 없으면 스토어로 이동)
