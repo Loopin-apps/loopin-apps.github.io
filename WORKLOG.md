@@ -4,22 +4,25 @@
 
 ---
 
-## 2026-11-20 — 개인 도메인 `apps.loopin.work` 연결
+## 2026-11-20 — 개인 도메인 `apps.loopin.work` 연결 (완료)
 
-- 사용자가 `loopin.work` 도메인을 구매. 사이트 주소를 하위 도메인 `apps.loopin.work`로.
-- 저장소 쪽(이 작업): 루트에 `CNAME` 파일(`apps.loopin.work`) 추가, `index.html`의 공유 미리보기 주소(`og:url`·`og:image`)를 새 주소로, `README.md`·`CLAUDE.md` 주소 갱신. QR·링크 복사의 `?open=` 주소는 `location.origin`을 써서 자동으로 새 주소가 됨.
-- 사용자 쪽(DNS·GitHub 설정):
-  1. 도메인 구매처 DNS에 **CNAME 레코드**: 호스트 `apps` → 값 `loopin-apps.github.io`
-  2. (권장) GitHub 조직 설정 → Pages → **도메인 인증**(`loopin.work`), 구매처 DNS에 TXT 레코드 추가 — 다른 사람이 도메인을 가로채 쓰는 것 방지
-  3. 저장소 Settings → Pages → Custom domain에 `apps.loopin.work`가 보이는지 확인, DNS 확인 뒤 **Enforce HTTPS** 켜기
-- 예전 주소 `loopin-apps.github.io`로 들어오면 GitHub이 새 주소로 자동 이동시킴.
+- 사용자가 `loopin.work` 도메인을 구매(DNS는 **Cloudflare**). 사이트 주소를 하위 도메인 `apps.loopin.work`로.
+- 저장소 쪽([#18](https://github.com/Loopin-apps/loopin-apps.github.io/pull/18), 배포 11-20 14:53): 루트에 `CNAME` 파일(`apps.loopin.work`), `index.html` 공유 미리보기 주소(`og:url`·`og:image`)를 새 주소로, `README.md`·`CLAUDE.md` 갱신. QR·링크 복사의 `?open=` 주소는 `location.origin`이라 자동으로 새 주소.
+- 사용자 쪽(완료):
+  1. Cloudflare DNS: **CNAME** `apps` → `loopin-apps.github.io`, **Proxy status: DNS only(회색 구름)**. 주황 구름(프록시)이면 GitHub이 HTTPS 인증서를 못 만들고 리디렉션 오류가 날 수 있음.
+  2. GitHub 조직 Loopin-apps → Settings → Pages → **Verified domains: `loopin.work` Verified**(Cloudflare에 TXT 레코드 추가). 다른 계정이 이 도메인을 쓰지 못함.
+  3. 저장소 Settings → Pages: Custom domain `apps.loopin.work` **DNS check successful**, **Enforce HTTPS 체크 완료**.
+- 결과: **https://apps.loopin.work** 로 서비스. 예전 주소 `loopin-apps.github.io`는 새 주소로 자동 이동.
+- 나중에 Cloudflare 프록시(주황 구름)를 쓰고 싶으면: GitHub HTTPS가 켜진 상태에서 주황 구름으로 바꾸고 Cloudflare SSL/TLS를 **Full**로. 지금은 회색 유지.
+- 작업 환경에서는 외부 DNS 조회·사이트 접속이 막혀 실제 접속은 사용자 화면(GitHub Pages 설정 캡처)으로 확인함.
 
 ---
 
-## 한눈에 보기 (2026-11-19 기준)
+## 한눈에 보기 (2026-11-20 기준)
 
 ### 현재 상태
-- **사이트**: https://apps.loopin.work (2026-11-20 개인 도메인 연결, 예전 `loopin-apps.github.io`는 자동 이동. GitHub Pages, `main` 머지 시 자동 배포)
+- **사이트**: https://apps.loopin.work (개인 도메인, HTTPS 적용. 예전 `loopin-apps.github.io`는 자동 이동. GitHub Pages, `main` 머지 시 자동 배포)
+- **도메인**: `loopin.work`(DNS Cloudflare, `apps` CNAME은 회색 구름). GitHub 조직에서 도메인 인증 완료
 - **저장소**: `Loopin-apps/loopin-apps.github.io` (GitHub 조직, public)
 - **이름·로고**: Loopin / 열린 고리 + 점(∞ 모양은 쓰지 않음)
 - **앱**: 15개, 모두 토스 공식 공유 링크로 연결(토스가 없으면 스토어로 이동)
@@ -46,9 +49,12 @@
 | [#14](https://github.com/Loopin-apps/loopin-apps.github.io/pull/14) | 11-17 17:42 | 하단 저작권 표시 `© 2026 Loopin. All rights reserved.` |
 | [#15](https://github.com/Loopin-apps/loopin-apps.github.io/pull/15) | 11-18 11:36 | 로고 교체 ∞ → 열린 고리(같은 이름 회사와 겹침) |
 | [#16](https://github.com/Loopin-apps/loopin-apps.github.io/pull/16) | 11-19 20:37 | 버벅임 2차 개선(반복 애니메이션 정리, 30 → 약 44.5fps) |
+| [#17](https://github.com/Loopin-apps/loopin-apps.github.io/pull/17) | 11-19 20:42 | WORKLOG 한눈에 보기·방문 기록 검토 |
+| [#18](https://github.com/Loopin-apps/loopin-apps.github.io/pull/18) | 11-20 14:53 | 개인 도메인 `apps.loopin.work` 연결(`CNAME`) |
 
 ### 남은 일·후보
 - **방문 기록(분석 도구) 붙이기** — 아래 2026-11-19 "방문 기록 검토" 참고. 사용자가 도구를 고르고 가입해야 진행.
+- **새 주소 확인**: 휴대폰·PC에서 https://apps.loopin.work 접속, 카카오톡에 새 주소 공유 시 미리보기 이미지.
 - **실기기 확인**: 휴대폰에서 앱 링크(특히 오늘의 타로 `fTtPUXu`, 코드가 7자), PC QR, 카카오톡 미리보기 이미지, 버벅임 체감.
 - **앱별 미리보기 이미지를 앱 공유 링크에 연결**: `toss-inapp` 각 앱 공유 코드 수정 + 앱 업데이트 필요.
 - **이름 상표 확인**: 같은 이름(LOOPIN)의 다른 회사가 있음. 키프리스에서 "Loopin"·"루핀" 9류·42류 등록 여부 확인 권장(미확인).
