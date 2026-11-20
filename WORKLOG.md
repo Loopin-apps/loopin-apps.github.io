@@ -4,6 +4,20 @@
 
 ---
 
+## 2026-11-20 — 로고 파일 묶음(`assets/brand/`)
+
+- 사용자 요청: 회사 로고 다운로드.
+- 만든 파일(PNG는 투명 배경):
+  - 글자 포함 로고 `loopin-wordmark-for-dark-bg.png`(흰 글자)·`-for-light-bg.png`(검정 글자) 1500×440
+  - 마크만 `loopin-symbol-for-dark-bg(-1024.png/.svg)`(흰 점)·`-for-light-bg`(보라 점 `#7c3aed`, 흰 배경에서 흰 점이 안 보여서)
+  - 앱 아이콘 `loopin-app-icon(-1024.png/.svg)`(어두운 둥근 사각형)
+  - SNS 프로필 `loopin-profile-1080.png`(동그랗게 잘려도 로고가 온전히 보이게 여백)
+  - 미리보기 `preview.png`
+- 글자 포함 로고는 PNG만(SVG 글자는 폰트 없는 기기에서 다르게 보임).
+- 생성 스크립트 `tools/make-brand.js`.
+
+---
+
 ## 2026-11-20 — 개인 도메인 `apps.loopin.work` 연결 (완료)
 
 - 사용자가 `loopin.work` 도메인을 구매(DNS는 **Cloudflare**). 사이트 주소를 하위 도메인 `apps.loopin.work`로.
