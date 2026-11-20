@@ -33,6 +33,9 @@ https://apps.loopin.work (예전 주소 `loopin-apps.github.io`는 자동으로 
 - `apps.js`의 `link`에 앱 안 공유 버튼으로 만든 공식 공유 링크(`https://tossminiapp.com/s/...`)를 넣으면 위 처리 대신 그 링크를 그대로 씀. **현재 15개 앱 모두 공식 링크를 씀**
 - Google Analytics(gtag)를 붙이면 `open_app` 이벤트로 앱별 클릭 수가 집계됩니다.
 
+## 로고 파일
+`assets/brand/`에 로고 파일이 있습니다(어두운·밝은 배경용 마크와 글자 포함 로고, 앱 아이콘, SNS 프로필용 1080px, SVG). 미리보기는 `assets/brand/preview.png`. 다시 만들 때는 `tools/make-brand.js`.
+
 ## 공유 미리보기 이미지
 `assets/og/`에 사이트(`site.jpg`)와 앱별(`<폴더명>.jpg`) 이미지가 있습니다. 사이트 이미지는 `index.html`의 `og:image`로 연결돼 있고, 앱별 이미지는 각 앱의 공유 링크에 붙일 때 씁니다(`https://apps.loopin.work/assets/og/<폴더명>.jpg`). 만드는 방법은 `tools/make-og.js` 맨 위 주석을 보세요.
 
