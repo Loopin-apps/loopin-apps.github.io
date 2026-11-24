@@ -6,7 +6,7 @@
 
 ## 2026-11-20 — 로고 파일 묶음(`assets/brand/`)
 
-- 사용자 요청: 회사 로고 다운로드.
+- 사용자 요청: 회사 로고 다운로드. 먼저 zip으로 전달하고, 사용자 요청으로 저장소에도 넣음([#20](https://github.com/Loopin-apps/loopin-apps.github.io/pull/20), 배포 11-20 15:05).
 - 만든 파일(PNG는 투명 배경):
   - 글자 포함 로고 `loopin-wordmark-for-dark-bg.png`(흰 글자)·`-for-light-bg.png`(검정 글자) 1500×440
   - 마크만 `loopin-symbol-for-dark-bg(-1024.png/.svg)`(흰 점)·`-for-light-bg`(보라 점 `#7c3aed`, 흰 배경에서 흰 점이 안 보여서)
@@ -32,7 +32,7 @@
 
 ---
 
-## 한눈에 보기 (2026-11-20 기준)
+## 한눈에 보기 (2026-11-24 기준)
 
 ### 현재 상태
 - **사이트**: https://apps.loopin.work (개인 도메인, HTTPS 적용. 예전 `loopin-apps.github.io`는 자동 이동. GitHub Pages, `main` 머지 시 자동 배포)
@@ -41,6 +41,7 @@
 - **이름·로고**: Loopin / 열린 고리 + 점(∞ 모양은 쓰지 않음)
 - **앱**: 15개, 모두 토스 공식 공유 링크로 연결(토스가 없으면 스토어로 이동)
 - **화면 구성**: 인트로 → 첫 화면(폰 목업·도는 아이콘) → 흐르는 띠 → 안심 포인트 → 앱 목록(카테고리 필터) → 이용 방법 → 인기 앱 열기 → 하단(저작권·공식 아님 안내)
+- **로고 파일**: `assets/brand/`(글자 포함 로고·마크·앱 아이콘·SNS 프로필, 어두운/밝은 배경용). 받는 곳: GitHub `assets/brand` 폴더 또는 `https://apps.loopin.work/assets/brand/<파일이름>`. 다시 만들기 `tools/make-brand.js`
 - **공유 미리보기 이미지**: 사이트 1장 + 앱별 15장(`assets/og/`). 앱별 이미지는 앱 공유 링크에 아직 연결 안 됨
 - **사이트에 넣지 않는 것**: 사업자 정보(상호·대표·등록번호·주소), 개인 계정 이름, 상표 문장
 
@@ -65,6 +66,8 @@
 | [#16](https://github.com/Loopin-apps/loopin-apps.github.io/pull/16) | 11-19 20:37 | 버벅임 2차 개선(반복 애니메이션 정리, 30 → 약 44.5fps) |
 | [#17](https://github.com/Loopin-apps/loopin-apps.github.io/pull/17) | 11-19 20:42 | WORKLOG 한눈에 보기·방문 기록 검토 |
 | [#18](https://github.com/Loopin-apps/loopin-apps.github.io/pull/18) | 11-20 14:53 | 개인 도메인 `apps.loopin.work` 연결(`CNAME`) |
+| [#19](https://github.com/Loopin-apps/loopin-apps.github.io/pull/19) | 11-20 15:01 | WORKLOG 도메인 연결 완료 기록 |
+| [#20](https://github.com/Loopin-apps/loopin-apps.github.io/pull/20) | 11-20 15:05 | 로고 파일 묶음 `assets/brand/` |
 
 ### 남은 일·후보
 - **방문 기록(분석 도구) 붙이기** — 아래 2026-11-19 "방문 기록 검토" 참고. 사용자가 도구를 고르고 가입해야 진행.
